@@ -21,12 +21,12 @@ public class Armstrong {
 		return number;
 	}
 
-	public boolean isArmstrong(Integer number) throws TypeMismatchException {
+	public boolean isArmstrong(Integer number) throws IllegalArgumentException {
 		boolean isArmstrong = true;
 		try {
 			if (number <= 0) {
-				log.info("NullPointerException occured : ");
-				throw new NullPointerException("Expected Natural Numbers :");
+				log.error("NullPointerException occured : ");
+				throw new IllegalArgumentException("Expected Natural Numbers :");
 			}
 			temp = number;
 			armstrongNumber = 0;
@@ -40,13 +40,10 @@ public class Armstrong {
 			} else {
 				isArmstrong = false;
 			}
-		} catch (TypeMismatchException e) {
+		} catch (IllegalArgumentException e) {
 			log.error(" Exception Occured : ", e);
-		} catch (NullPointerException ex) {
-			log.error("Exception occured : ", ex);
 		} catch (Exception e) {
 			log.error("Exception occured : ", e);
-
 		}
 		return isArmstrong;
 	}
